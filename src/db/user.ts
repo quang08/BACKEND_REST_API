@@ -21,9 +21,8 @@ export const getUserBySessionToken = (sessionToken: string) =>
   UserModel.findOne({ "authentication.sessionToken": sessionToken });
 export const getUserById = (id: string) => UserModel.findById(id);
 export const createUser = (values: Record<string, any>) =>
-  new UserModel(values).save().then((user) => user.toObject());
+  new UserModel(values).save().then((user) => user.toObject()); //converts the user Mongoose document to a plain JavaScript object.
 export const deleteUserById = (id: string) =>
   UserModel.findOneAndDelete({ _id: id });
 export const upateUserById = (id: string, values: Record<string, any>) =>
   UserModel.findByIdAndUpdate(id, values);
-

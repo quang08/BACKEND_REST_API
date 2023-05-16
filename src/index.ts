@@ -25,7 +25,8 @@ server.listen(8080, () => {
   console.log("Server is listening on port 8080");
 });
 
-const MONGO_URL = "";
+const MONGO_URL =
+  "mongodb+srv://quang:08022003@cluster0.qundruj.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.Promise = Promise; //so we can chain then() catch() with the promises returned by mongoose
 mongoose.connect(MONGO_URL); //connect to the database

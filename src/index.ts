@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import compression from "compression";
 import mongoose from "mongoose";
+import router from "./router";
 
 const app = express();
 
@@ -33,3 +34,6 @@ mongoose.connect(MONGO_URL); //connect to the database
 mongoose.connection.on("error", (err) => {
   console.error("MongoDB error", err);
 });
+
+app.use('/', router());
+//.use() only runs when a request is made to the server, and it runs before the request is passed to the router.
